@@ -4,7 +4,7 @@ body {
   height: 100%;
   margin: 0;
   overflow: hidden;
-  background-color: #000;
+  background-color: #F9F0E2;
   font-family: Helvetica, sans-serif;
 }
 
@@ -33,7 +33,7 @@ body {
 }
 
 .point.user {
-  background-color: yellow;
+  background-color: #527871;
 }
 
 .point.i-bau {
@@ -57,7 +57,7 @@ body {
   width: 0;
   height: 0;
   border-radius: 50%;
-  background-color: yellow;
+  background-color: #527871;
   opacity: 0.25;
 }
 
@@ -73,7 +73,7 @@ body {
 }
 
 .text-field.user {
-  color: yellow;
+  color: #527871;
 }
 
 .text-field.i-bau {
