@@ -14,18 +14,25 @@
 
   const pointsDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("points");
   const userPointDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".point.user");
-  const iBauPointDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".point.i-bau");
-  const donauQuellePointDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".point.donau-quelle");
+  const paulPointDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".point.paul");
+  const luisaPointDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".point.luisa");
 
   const userTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.user");
-  const iBauTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.i-bau");
-  const donauQuelleTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.donau-quelle");
+  const iBauTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.paul");
+  const donauQuelleTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.luisa");
   
   const points: Point[] = [
     { label: "You", element: userPointDiv, text: userTextDiv, latitude: 0, longitude: 0 },
-    { label: "HFU I-Bau", element: iBauPointDiv,  text: iBauTextDiv, latitude: 48.049993, longitude: 8.210727 },
-    { label: "Donau Quelle", element: donauQuellePointDiv,  text: donauQuelleTextDiv, latitude: 48.095364, longitude: 8.154895 },
+    { label: "paul", element: paulPointDiv,  text: iBauTextDiv, latitude: 48.049993, longitude: 8.210727 },
+    { label: "luisa", element: luisaPointDiv,  text: donauQuelleTextDiv, latitude: 48.095364, longitude: 8.154895 },
   ];
+
+  userPointDiv.addEventListener("touchend", playRequest);
+  userPointDiv.addEventListener("mouseup", playRequest);
+  paulPointDiv.addEventListener("touchend", playRequest);
+  paulPointDiv.addEventListener("mouseup", playRequest);
+  luisaPointDiv.addEventListener("touchend", playRequest);
+  luisaPointDiv.addEventListener("mouseup", playRequest);
 
   // create start screen and register 
   const geoLocationManager: GeoLocationManager = new GeoLocationManager();
@@ -88,4 +95,11 @@
       point.text.innerHTML = `${point.label}: ${point.latitude.toFixed(3)}, ${point.longitude.toFixed(3)}`;
     }
   }
+
+
+
+  function playRequest(e: MouseEvent | TouchEvent): void {
+    alert("Möchtest du eine Spielanfrage senden?")
+  }
+
 }

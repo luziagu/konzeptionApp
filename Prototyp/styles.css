@@ -36,11 +36,11 @@ body {
   background-color: #527871;
 }
 
-.point.i-bau {
+.point.paul {
   background-color: mediumslateblue;
 }
 
-.point.donau-quelle {
+.point.luisa {
   background-color: turquoise;
 }
 
@@ -76,10 +76,10 @@ body {
   color: #527871;
 }
 
-.text-field.i-bau {
+.text-field.paul {
   color: mediumslateblue;
 }
 
-.text-field.donau-quelle {
+.text-field.luisa {
   color: turquoise;
 }
