@@ -16,6 +16,7 @@
   const userPointDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".point.user");
   const paulPointDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".point.paul");
   const luisaPointDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".point.luisa");
+  const myProfile: HTMLDivElement = <HTMLDivElement>document.querySelector(".myProfile");
 
   const userTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.user");
   const iBauTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.paul");
@@ -33,6 +34,8 @@
   paulPointDiv.addEventListener("mouseup", playRequest);
   luisaPointDiv.addEventListener("touchend", playRequest);
   luisaPointDiv.addEventListener("mouseup", playRequest);
+  myProfile.addEventListener("mouseup", playRequest); 
+  myProfile.addEventListener("touchend", playRequest);
 
   // create start screen and register 
   const geoLocationManager: GeoLocationManager = new GeoLocationManager();

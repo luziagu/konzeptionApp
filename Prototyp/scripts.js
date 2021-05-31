@@ -10,6 +10,7 @@ var furtwangenGeoloc;
     const userPointDiv = document.querySelector(".point.user");
     const paulPointDiv = document.querySelector(".point.paul");
     const luisaPointDiv = document.querySelector(".point.luisa");
+    const myProfile = document.querySelector(".myProfile");
     const userTextDiv = document.querySelector(".text-field.user");
     const iBauTextDiv = document.querySelector(".text-field.paul");
     const donauQuelleTextDiv = document.querySelector(".text-field.luisa");
@@ -24,6 +25,8 @@ var furtwangenGeoloc;
     paulPointDiv.addEventListener("mouseup", playRequest);
     luisaPointDiv.addEventListener("touchend", playRequest);
     luisaPointDiv.addEventListener("mouseup", playRequest);
+    myProfile.addEventListener("mouseup", playRequest);
+    myProfile.addEventListener("touchend", playRequest);
     // create start screen and register 
     const geoLocationManager = new GeoLocationManager();
     geoLocationManager.onLocation = onLoction;
