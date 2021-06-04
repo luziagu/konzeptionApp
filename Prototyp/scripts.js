@@ -4,20 +4,21 @@
  * (based on the StartScreen and ResourceManager abstractions)
  * Norbert Schnell, 2021
  */
-var furtwangenGeoloc;
-(function (furtwangenGeoloc) {
+var highfive;
+(function (highfive) {
     const pointsDiv = document.getElementById("points");
     const userPointDiv = document.querySelector(".point.user");
     const paulPointDiv = document.querySelector(".point.paul");
     const luisaPointDiv = document.querySelector(".point.luisa");
     const myProfile = document.querySelector(".myProfile");
+    const addPointsButton = document.querySelector("#AddPoints");
     const userTextDiv = document.querySelector(".text-field.user");
-    const iBauTextDiv = document.querySelector(".text-field.paul");
-    const donauQuelleTextDiv = document.querySelector(".text-field.luisa");
+    const paulTextDiv = document.querySelector(".text-field.paul");
+    const luisaTextDiv = document.querySelector(".text-field.luisa");
     const points = [
         { label: "You", element: userPointDiv, text: userTextDiv, latitude: 0, longitude: 0 },
-        { label: "paul", element: paulPointDiv, text: iBauTextDiv, latitude: 48.049993, longitude: 8.210727 },
-        { label: "luisa", element: luisaPointDiv, text: donauQuelleTextDiv, latitude: 48.095364, longitude: 8.154895 },
+        { label: "Paul", element: paulPointDiv, text: paulTextDiv, latitude: 48.049993, longitude: 8.210727 },
+        { label: "Luisa", element: luisaPointDiv, text: luisaTextDiv, latitude: 48.095364, longitude: 8.154895 },
     ];
     userPointDiv.addEventListener("touchend", playRequest);
     userPointDiv.addEventListener("mouseup", playRequest);
@@ -25,8 +26,10 @@ var furtwangenGeoloc;
     paulPointDiv.addEventListener("mouseup", playRequest);
     luisaPointDiv.addEventListener("touchend", playRequest);
     luisaPointDiv.addEventListener("mouseup", playRequest);
-    myProfile.addEventListener("mouseup", playRequest);
-    myProfile.addEventListener("touchend", playRequest);
+    myProfile.addEventListener("mouseup", myProfilePopUp);
+    myProfile.addEventListener("touchend", myProfilePopUp);
+    addPointsButton.addEventListener("mouseup", addCreditPoints);
+    addPointsButton.addEventListener("touchend", addCreditPoints);
     // create start screen and register 
     const geoLocationManager = new GeoLocationManager();
     geoLocationManager.onLocation = onLoction;
@@ -45,6 +48,14 @@ var furtwangenGeoloc;
             setTimeout(() => userPoint.element.classList.remove("breathe"), 250);
         }
         calculatePoints();
+    }
+    function addCreditPoints() {
+        alert("Eine Aufgabe erfolgreich gelöst.");
+        let creditPoints = document.querySelector("#creditPoint");
+        let five = 5;
+        if (five != 0) {
+            creditPoints.innerHTML++;
+        }
     }
     function calculatePoints() {
         let maxLatitude = -Infinity;
@@ -76,8 +87,11 @@ var furtwangenGeoloc;
             point.text.innerHTML = `${point.label}: ${point.latitude.toFixed(3)}, ${point.longitude.toFixed(3)}`;
         }
     }
-    function playRequest(e) {
+    function playRequest() {
         alert("Möchtest du eine Spielanfrage senden?");
     }
-})(furtwangenGeoloc || (furtwangenGeoloc = {}));
+    function myProfilePopUp() {
+        alert("Dein Profil");
+    }
+})(highfive || (highfive = {}));
 //# sourceMappingURL=scripts.js.map

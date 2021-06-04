@@ -3,7 +3,7 @@
  * (based on the StartScreen and ResourceManager abstractions)
  * Norbert Schnell, 2021
  */
- namespace furtwangenGeoloc {
+ namespace highfive {
   interface Point {
     label: string;
     element: HTMLDivElement;
@@ -17,15 +17,16 @@
   const paulPointDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".point.paul");
   const luisaPointDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".point.luisa");
   const myProfile: HTMLDivElement = <HTMLDivElement>document.querySelector(".myProfile");
+  const addPointsButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#AddPoints");
 
   const userTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.user");
-  const iBauTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.paul");
-  const donauQuelleTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.luisa");
+  const paulTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.paul");
+  const luisaTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.luisa");
   
   const points: Point[] = [
     { label: "You", element: userPointDiv, text: userTextDiv, latitude: 0, longitude: 0 },
-    { label: "paul", element: paulPointDiv,  text: iBauTextDiv, latitude: 48.049993, longitude: 8.210727 },
-    { label: "luisa", element: luisaPointDiv,  text: donauQuelleTextDiv, latitude: 48.095364, longitude: 8.154895 },
+    { label: "Paul", element: paulPointDiv,  text: paulTextDiv, latitude: 48.049993, longitude: 8.210727 },
+    { label: "Luisa", element: luisaPointDiv,  text: luisaTextDiv, latitude: 48.095364, longitude: 8.154895 },
   ];
 
   userPointDiv.addEventListener("touchend", playRequest);
@@ -34,8 +35,10 @@
   paulPointDiv.addEventListener("mouseup", playRequest);
   luisaPointDiv.addEventListener("touchend", playRequest);
   luisaPointDiv.addEventListener("mouseup", playRequest);
-  myProfile.addEventListener("mouseup", playRequest); 
-  myProfile.addEventListener("touchend", playRequest);
+  myProfile.addEventListener("mouseup", myProfilePopUp); 
+  myProfile.addEventListener("touchend", myProfilePopUp);
+  addPointsButton.addEventListener("mouseup", addCreditPoints); 
+  addPointsButton.addEventListener("touchend", addCreditPoints);
 
   // create start screen and register 
   const geoLocationManager: GeoLocationManager = new GeoLocationManager();
@@ -48,7 +51,9 @@
   // start (creates audio context )
   startScreen.start();
 
-  window.addEventListener("resize", calculatePoints);
+  window.addEventListener("resize", calculatePoints); 
+
+
 
   function onLoction(coord: GeolocationCoordinates, timestamp: number): void {
     const userPoint: Point = points[0];
@@ -62,6 +67,21 @@
     }
 
     calculatePoints();
+
+    
+  }
+
+  function addCreditPoints(): void {
+    alert("Eine Aufgabe erfolgreich gelöst.")
+    let creditPoints: any = document.querySelector("#creditPoint"); 
+    let five: number = 5; 
+    
+    
+
+    if (five != 0) {
+      creditPoints.innerHTML++; 
+    }
+
   }
 
   function calculatePoints(): void {
@@ -99,10 +119,12 @@
     }
   }
 
-
-
-  function playRequest(e: MouseEvent | TouchEvent): void {
+  function playRequest(): void {
     alert("Möchtest du eine Spielanfrage senden?")
   }
 
+  function myProfilePopUp(): void {
+    alert("Dein Profil")
+  }
+  
 }
