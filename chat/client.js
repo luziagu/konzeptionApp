@@ -1,6 +1,7 @@
 "use strict";
 var highfiveApp;
 (function (highfiveApp) {
+    let userName = "";
     const messageField = document.getElementById("nameLogin");
     messageField.addEventListener("keyup", function (evt) {
         if (evt.key === "Enter") {
@@ -12,10 +13,10 @@ var highfiveApp;
         alert("Hello World");
         if (text !== null && text.length > 0) {
             const data = {
-                client: id,
+                user: userName,
                 text: text,
             };
-            sendPostRequest("/message", JSON.stringify(data));
+            highfiveApp.sendPostRequest("/message", JSON.stringify(data));
         }
     }
 })(highfiveApp || (highfiveApp = {}));

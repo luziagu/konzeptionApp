@@ -1,6 +1,6 @@
 namespace highfiveApp {
 
-
+    let userName: string = ""; 
     const messageField: HTMLInputElement = <HTMLInputElement>document.getElementById("nameLogin"); 
 
     messageField.addEventListener("keyup", function (evt: KeyboardEvent): void {
@@ -16,10 +16,14 @@ namespace highfiveApp {
         alert("Hello World"); 
         if (text !== null && text.length > 0) {
             const data: ClientMessage = {
-              client: id,
+              user: userName,
               text: text,
-            };
-      
-            sendPostRequest("/message", JSON.stringify(data));
+        };
+        sendPostRequest("/message", JSON.stringify(data));
+    
     }
+            
+  }
+
+   
 }
