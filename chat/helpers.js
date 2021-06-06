@@ -1,7 +1,7 @@
 "use strict";
 var highfiveApp;
 (function (highfiveApp) {
-    const serverURL = ;
+    const serverURL = "https://highfivekonzeption.herokuapp.com";
     async function sendGetRequest(url) {
         const response = await fetch(serverURL + url, {
             method: "GET",

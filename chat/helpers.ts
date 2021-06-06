@@ -1,13 +1,13 @@
 namespace highfiveApp {
 
     export interface ClientMessage {
-        user: string;
+        user: number;
         text: string;
 
     }
 
-    const serverURL: string =
-    
+    const serverURL: string = "https://highfivekonzeption.herokuapp.com"; 
+
     export async function sendGetRequest(url: string): Promise<string> {
         const response: Response = await fetch(serverURL + url, {
           method: "GET",

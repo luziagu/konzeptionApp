@@ -1,7 +1,8 @@
 namespace highfiveApp {
 
-    let userName: string = ""; 
+    let userName: number = null; 
     const messageField: HTMLInputElement = <HTMLInputElement>document.getElementById("nameLogin"); 
+    const idDiv: HTMLElement = <HTMLInputElement>document.getElementById("id");
 
     messageField.addEventListener("keyup", function (evt: KeyboardEvent): void {
         if (evt.key === "Enter") {
@@ -11,6 +12,17 @@ namespace highfiveApp {
 
     });
 
+    getIdfromServer();
+
+    async function getIdfromServer(): Promise<void> {
+      try {
+        const idStr: string = await sendGetRequest("/id"); // assign id to gloab variable (see above)
+        idDiv.innerHTML = "#" + idStr; // display id on HTML page
+        userName = parseInt(idStr);
+      } catch (err) {
+        console.error("fetch error: ", err);
+      }
+    }
 
     function sendMessageToServer(text: string): void {
         alert("Hello World"); 
