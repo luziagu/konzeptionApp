@@ -5,7 +5,7 @@
     "description": "highfiveApp",
     "main": "",
     "scripts": {
-      "start": "node chat/server.js remote"
+      "start": "node Prototyp_Tanja/server.js remote"
     },
     "repository": {
       "type": "git",
