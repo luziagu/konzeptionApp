@@ -1,73 +1,169 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Http = require("http");
-const Url = require("url");
-const Mongo = require("mongodb");
 var highfive;
 (function (highfive) {
-    let orders;
-    let allPictures = [];
-    let port = process.env.PORT;
-    if (port == undefined)
-        port = 5001;
-    let mongoClient;
-    let databaseUrl = "mongodb+srv://Luziagu:EIA2@eia2-lozyt.mongodb.net/EIA2?retryWrites=true&w=majority";
-    startServer(port);
-    connectToDatabase(databaseUrl);
-    function startServer(_port) {
-        let server = Http.createServer(); // Für Server wird Port erstellt
-        console.log(server);
-        console.log("Server starting on port:" + _port);
-        server.listen(_port); //Server hört auf Port und der Port wird geöffnet
-        server.addListener("request", handleRequest); // Ein Event Request wird auf den Server gesetzt, der dann die Funktion HandleRequest aufruft
+    /*import * as Mongo from "mongodb";
+    
+    const databaseUrl: string = "mongodb://127.0.0.1:27017";
+    const dbName: string = "http-message-board";
+    const dbCollectionName: string = "messageList";
+    let dbCollection: Mongo.Collection = null;*/
+    // define count to give out different client ids
+    let userIdCounter = 0;
+    // list of received client messages
+    const messageList = [];
+    // get port from shell or set default (8000)
+    const port = Number(process.env.PORT) || 8000;
+    // main function waiting for async functions
+    (async function main() {
+        //await connectToDb();
+        //await getMessageListFromDb();
+        // create and launch server
+        let server = http.createServer(handleRequest);
+        server.listen(port, () => console.log(`Server listening on port ${port}`));
+    })();
+    /***********************************************************
+     *
+     *  helper functions
+     *
+     */
+    /*async function connectToDb(): Promise<void> {
+      let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
+      let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(databaseUrl, options);
+    
+      await mongoClient.connect();
+      dbCollection = mongoClient.db(dbName).collection(dbCollectionName);
+    
+      if (dbCollection !== undefined) {
+        console.log("Connnected to db");
+      } else {
+        console.log("Could not connect to db");
+      }
     }
-    async function connectToDatabase(_url) {
-        let options = { useNewUrlParser: true, useUnifiedTopology: true };
-        mongoClient = new Mongo.MongoClient(_url, options);
-        await mongoClient.connect(); //MongoDB soll verbunden werden
-        orders = mongoClient.db("Zauberbild").collection("magicPicture"); //Daten die in Ordern gespeichert wurden werden in der collection abgelegt. 
-        console.log("Database connection", orders != undefined);
+    
+    async function getMessageListFromDb(): Promise<void> {
+      let collectionArray: ClientMessage[] = await dbCollection.find().sort({ "_id": 1 }).toArray();
+    
+      // retrieve message list from db
+      for (let doc of collectionArray) {
+        const userId: string = doc.user;
+    
+        // find highest client id in db to initialize counter
+        if (userId > userIdCounter)
+          userIdCounter = userId;
+    
+        // add message from db to message list
+        const message: ClientMessage = { user: doc.user, text: doc.text };
+        messageList.push(message);
+    
+        // print message to server console
+        console.log(`#${message.user}: "${message.text}"`);
+      }
     }
-    //let anyOrder: string[] = [];
-    async function handleRequest(_request, _response) {
-        console.log("what's up?");
-        console.log(_request.url); //Wie mit der Request umgegangen wird 
-        _response.setHeader("content-type", "text/html; charset=utf-8");
-        _response.setHeader("Access-Control-Allow-Origin", "*");
-        if (_request.url) {
-            let url = Url.parse(_request.url, true);
-            let spliturl = _request.url.split("&");
-            if (spliturl[0] == "/?safeImage") {
-                orders = mongoClient.db("Zauberbild").collection("magicPicture"); //Daten der collection zuordnen
-                await (orders).insertOne(url.query);
-                _response.write("Picture saved");
-                allPictures = [];
+    
+    function handlePostRequest(url: string, data: string): string {
+      switch (url) {
+        // append message to board
+        case "/message": {
+          const message: ClientMessage = <ClientMessage>JSON.parse(data);
+    
+          // add message to db collection and message list
+          const id: number = messageList.length;
+          dbCollection.insertOne({ _id: id, client: message.user, text: message.text });
+          messageList.push(message);
+    
+          // print message to server console
+          console.log(`#${message.user}: "${message.text}"`);
+          break;
+        }
+    
+        // clear message list and db collection
+        case "/clear": {
+          messageList.length = 0;
+          dbCollection.deleteMany({});
+          break;
+        }
+    
+        default:
+          console.error(`unknown POST request URL: ${url}`);
+          break;
+      }
+    
+      return "";
+    }
+    */
+    function handlePostRequest(url, data) {
+        switch (url) {
+            // append message to board
+            case "/message": {
+                const message = JSON.parse(data);
+                // add message to db collection and message list
+                const id = messageList.length;
+                //dbCollection.insertOne({ _id: id, client: message.client, text: message.text });
+                messageList.push(message);
+                // print message to server console
+                //console.log(`#${message.client}: "${message.text}"`);
+                break;
             }
-            if (spliturl[0] == "/?getImage") { //ausgewählter Titel mit Titel in Datenbank abgleichen und die richtigen
-                //Bilddaten anfordern, raussuchen
-                let picture = orders.find({ name: spliturl[1] });
-                await picture.forEach(showOrders);
-                let jsonString = JSON.stringify(allPictures);
-                jsonString.toString();
-                _response.write(jsonString);
-                allPictures = [];
+            // clear message list and db collection
+            case "/clear": {
+                messageList.length = 0;
+                //dbCollection.deleteMany({});
+                break;
             }
-            if (spliturl[0] == "/?getTitles") { //alle Titel aus Datenbank raussuchen
-                let names = orders.find({}, { projection: { _id: 0, name: true } });
-                await names.forEach(showOrders);
-                let jsonString = JSON.stringify(allPictures);
-                jsonString.toString();
-                _response.write(jsonString);
-                _response.write(names.toString());
-                allPictures = [];
-                console.log(names);
+            default:
+                console.error(`unknown POST request URL: ${url}`);
+                break;
+        }
+        return "";
+    }
+    function handleGetRequest(url) {
+        switch (url) {
+            // send next id to client
+            case "/id": {
+                let id = ++userIdCounter;
+                return id.toString();
+            }
+            // send message list as JSON string
+            case "/message-list": {
+                return JSON.stringify(messageList);
+            }
+            default:
+                console.error(`unknown GET request URL: ${url}`);
+                break;
+        }
+        return "";
+    }
+    // handle POST and GET requests (application independent)
+    function handleRequest(request, response) {
+        let requestString = "";
+        let responseString = "";
+        switch (request.method) {
+            case "POST": {
+                // concatenate request data from chunks
+                request.on("data", chunk => {
+                    requestString += chunk;
+                });
+                // handle request with given data
+                request.on("end", () => {
+                    responseString = handlePostRequest(request.url, requestString);
+                    sendResponse(response, responseString);
+                });
+                break;
+            }
+            case "GET": {
+                let responseString = handleGetRequest(request.url);
+                sendResponse(response, responseString);
+                break;
             }
         }
-        _response.end(); //Antwort wird verschickt
     }
-    function showOrders(_item) {
-        let jsonString = JSON.stringify(_item);
-        allPictures.push(jsonString);
+    // send response with given string (application independent)
+    function sendResponse(response, responseString) {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Content-Type", "text/plain");
+        response.write(responseString);
+        response.end();
     }
 })(highfive = exports.highfive || (exports.highfive = {}));
 //# sourceMappingURL=server.js.map
