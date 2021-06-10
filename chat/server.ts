@@ -2,7 +2,7 @@
 export namespace highfive {
 
     import * as Http from "http";
-    import * as serverURL from "serverUR";
+    import * as serverURL from "serverURL";
     /*import * as Mongo from "mongodb";
     
     const databaseUrl: string = "mongodb://127.0.0.1:27017";

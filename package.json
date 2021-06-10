@@ -1,23 +1,25 @@
-
 {
-    "name": "highfive",
-    "version": "1.0.0",
-    "description": "highfiveApp",
-    "main": "",
-    "scripts": {
-      "start": "node Prototyp_Tanja/server.js remote"
-    },
-    "repository": {
-      "type": "git",
-      "url": "konzeptionApp"
-    },
-    "keywords": [
-      "highfive"
-    ],
-    "author": "Luzia Gunzenhauser",
-    "license": "ISC",
-    "dependencies": {
-      "@types/mongodb": "^3.5.20",
-      "mongodb": "^3.5.8"
-    }
+  "name": "highfive",
+  "version": "1.0.0",
+  "description": "highfiveApp",
+  "main": "",
+  "scripts": {
+    "start": "node Prototyp_Tanja/server.js remote"
+  },
+  "repository": {
+    "type": "git",
+    "url": "konzeptionApp"
+  },
+  "keywords": [
+    "highfive"
+  ],
+  "author": "Luzia Gunzenhauser",
+  "license": "ISC",
+  "dependencies": {
+    "@types/mongodb": "^3.5.20",
+    "mongodb": "^3.5.8"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.2"
   }
+}
