@@ -1,5 +1,5 @@
 
- import * as Http from "http";
+import * as Http from "http";
 
 export namespace highfive {
 
