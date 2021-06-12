@@ -1,0 +1,88 @@
+body, div, dl, dt, dd, h1, h2, h3, h4, h5, h6, p, pre, code, blockquote {
+	margin:0;
+	padding:0;
+	border-width:0;
+}
+body {
+	-epub-hyphens:auto;
+}
+div.Einfacher-Grafikrahmen {
+	border-color:#000000;
+	border-width:1px;
+	border-style:solid;
+}
+div.Einfacher-Textrahmen {
+	border-style:solid;
+}
+p.Einf--Abs- {
+	color:#000000;
+	font-family:"Minion Pro", serif;
+	font-size:12px;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:1.2;
+	margin-bottom:0;
+	margin-left:0;
+	margin-right:0;
+	margin-top:0;
+	orphans:1;
+	page-break-after:auto;
+	page-break-before:auto;
+	text-align:left;
+	text-decoration:none;
+	text-indent:0;
+	text-transform:none;
+	widows:1;
+}
+p.ParaOverride-1 {
+	-epub-hyphens:none;
+	text-align:justify;
+	text-align-last:left;
+}
+span.CharOverride-1 {
+	color:#ffffff;
+	font-family:"Open Sans", sans-serif;
+	font-size:32px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.CharOverride-2 {
+	color:#ffffff;
+	font-family:"Montserrat ExtraBold", sans-serif;
+	font-size:91px;
+	font-style:normal;
+	font-weight:800;
+}
+span.CharOverride-3 {
+	color:#ffffff;
+	font-family:"Montserrat ExtraBold", sans-serif;
+	font-size:30px;
+	font-style:normal;
+	font-weight:800;
+}
+#_idContainer000 {
+	display:inline-block;
+	height:1156px;
+	width:2040px;
+}
+#_idVideo000 {
+	height:100.00%;
+	width:100.00%;
+}
+#_idContainer004 {
+	display:inline-block;
+	height:1027px;
+	text-align:left;
+	width:474px;
+}
+div._idGenObjectStyleOverride-1 {
+	background-color:#323537;
+	border-width:0px;
+}
+div._idGenObjectStyleOverride-2 {
+	border-width:0px;
+}
+div._idGenObjectLayout-1 {
+	text-align:center;
+}
