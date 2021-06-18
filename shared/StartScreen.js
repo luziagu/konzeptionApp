@@ -1,4 +1,11 @@
 "use strict";
+// Textfielduser -> nach der eingabe das Textfield selektier und mit inner html den wert aus dem Input feld inputfield.value
+// let input: HTMLInputField = <HTMLInputField>document.querySelector("input"); 
+// let name: string = input.value; 
+// let div: HTMLDivElement = <HTMLDivElement>document.querySelector(".user")
+// div.innerHTML = name; //alida
+//window.alert bei den credit points 
+// window.allert -> server -> interface zwie strings -> selector - Daten selber; siwtch case -> was grade ankam.window.prompt
 class StartScreen {
     constructor(id) {
         this.screenDiv = null;
@@ -18,8 +25,9 @@ class StartScreen {
     start() {
         return new Promise((resolve) => {
             this.screenDiv.style.display = "block";
-            this.setText("touch screen to start");
-            this.screenDiv.addEventListener("click", () => {
+            this.setText("click the Button to start");
+            let Savebutton = document.querySelector(".savename");
+            Savebutton.addEventListener("click", () => {
                 this.setText("checking for resources...");
                 const promises = [];
                 for (let manager of this.managers) {

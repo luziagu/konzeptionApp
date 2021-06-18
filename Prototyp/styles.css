@@ -1,53 +1,126 @@
 body {
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   margin: 0;
   overflow: hidden;
-  background-color: #F9F0E2;
+  background-color: #f3cf94;
   font-family: Helvetica, sans-serif;
+  font-size: 15px;
+  z-index: -1;
 }
 #profile {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: -10;
+  left: -10;
   width: 100%;
   height: 100%;
   margin: auto;
   touch-action: manipulation;
 }
+
+.password {
+position: absolute;
+top: 50%;
+width: 200px;
+height: 28px;
+left: 43.5%;
+border-radius: 6px;
+}
+
+.inputname {
+position: absolute;
+top: 45%;
+width: 200px;
+height: 28px;
+left: 43.5%;
+border-radius: 6px;
+}
+
+.savename {
+position: absolute;
+top: 55%;
+width: 210px;
+height: 28px;
+left: 43.5%;
+border-radius: 6px;
+background-color: rgb(35, 34, 34);
+color:white;
+
+}
+
+.logname {
+  position: fixed;
+  top: 255px;
+  right: -187px;
+  width: 200px;
+  height: 50px;
+  width: 400px;
+  height: 400px;
+  color: rgb(52, 51, 51);
+  font-size: 25px;
+  font-family:'Arial Narrow Bold', sans-serif;
+}
+
 .myProfile {
   position: absolute;
   top: 50px;
   right: 50px;
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   margin-bottom: -10px;
   margin-left: -10px;
   border-radius: 10%;
   opacity: 1;
-  background-color: white;
-  transition-property: left, bottom, width, height, margin-bottom, margin-left, opactity;
-
+  background-color: rgb(255, 255, 255);
+  border: #000000;
+  border-radius: 4px;
+  opacity: 80%;
+  border-color: rgb(205, 227, 247);
+  z-index: 0;
 }
 
-#creditPoint {
-  position: absolute;
-  top: 40px;
-  left: -50px;
-  color: white;
+#Userpicture{
+  width: 183px;
+  height: 181px;
+  margin-left: 84.3%;
+  margin-top: 60px;
+  display: block;
 }
 
-#AddPoints{
+
+.myProfile:hover{
+  opacity: 55%;
+  cursor:pointer;
+}
+
+#creditpoints { 
+  position:absolute;
+  top:40px;
+  left:40px;
+}
+
+#Namelogin {
   position: absolute;
-  top: 170px;
-  right: 40px;
-  color: white;
+  top: 293px;
+  right: 42%;
+  width: 219px;
+  height: 50px;
   border-radius: 5px;
-  margin: 10px 10px;
-  padding: 10px 10px;
-  border-style: none;
-  background-color: #527871;
+}
+
+.thumbsup {
+  font-size: 36px;
+  position: absolute;
+  color: red;
+  left: 30px;
+  top: 5px;
+  border-radius: 11px ;
+  background-color: #a7afae;
+}
+
+.thumbsup:hover{
+  background-color:#7fc1b9;
 }
 
 #points {
@@ -60,6 +133,7 @@ body {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  
 }
 
 .point {
@@ -75,14 +149,16 @@ body {
 }
 
 .point.user {
-  background-color: #527871;
-}
+  position: absolute;
+  background-color: #527871;}
 
 .point.paul {
+  position: absolute;
   background-color: mediumslateblue;
 }
 
 .point.luisa {
+  position: absolute;
   background-color: turquoise;
 }
 
@@ -123,5 +199,5 @@ body {
 }
 
 .text-field.luisa {
-  color: turquoise;
+  color: rgb(3, 123, 111);
 }

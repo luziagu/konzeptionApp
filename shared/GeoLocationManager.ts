@@ -1,5 +1,9 @@
-class GeoLocationManager implements ResourceManager {
+interface ResourceManager {
+  getCheck(): Promise<void>;
+
+}class GeoLocationManager implements ResourceManager {
   public onLocation: Function = null;
+
   private timeout: NodeJS.Timeout = null;
 
   getCheck(): Promise<void> {
