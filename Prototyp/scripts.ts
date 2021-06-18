@@ -97,7 +97,6 @@
 // if (five != 0) {
 // Credits.innerHTML = five + "";
 
-
  function Countfive(): void {
 
    let Credits: any = document.querySelector("#creditpoints"); 
@@ -145,7 +144,5 @@
       point.text.innerHTML = `${point.label}: ${point.latitude.toFixed(3)}, ${point.longitude.toFixed(3)}`;
     }
   }
-
- 
 
 }
