@@ -29,13 +29,5 @@ var highfive;
         Div.appendChild(name);
         name.innerHTML = NameInput.value; //Prinzip funktioniert
     }
-    // function sendText(name: string): void {
-    //   if (name !== null && name.length > 0) {
-    //     //Name in HTML Pushen!!
-    //     PlayerlistDiv.innerHTML= "HAAAALLLLLLLLLLLLOOOOOOO";
-    //     };
-    //   sendPostRequest("/message", JSON.stringify(name));; // function sendPostrequest aufrufen und namen mitgeben als STRING
-    // }
-    //     } //url= /message 
 })(highfive || (highfive = {}));
 //# sourceMappingURL=client.js.map
