@@ -7,7 +7,7 @@
     "node": "10.x"
   },
   "scripts": {
-    "start": "node Prototyp/server.js remote"
+    "start": "node prototyp/server.js remote"
   },
   "repository": {
     "type": "git",
