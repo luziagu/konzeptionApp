@@ -1,5 +1,6 @@
 
 import * as Http from "http";
+import * as Url from "url"; 
 
 export namespace highfive {
 
@@ -11,53 +12,41 @@ export namespace highfive {
 // Recieve data from request
 // Respond data in console and to body
 
-let allPostData = "";
-
-let port: number | string | undefined = process.env.PORT; 
-    if (port == undefined )
-    port = 5001; 
+  
+    let server: Http.Server = Http.createServer();
+    let port: number | string | undefined = process.env.PORT; 
+        if (port == undefined )
+        port = 5001; 
     
-let server: Http.Server = Http.createServer();
-    server.listen(port, () => console.log(`Server listening on port ${port}`));
+   
+        server.listen(port);
 
-console.log("Port: " + port);
-startServer(port);
-
-
-function startServer(_port: number | string): void {
-    let server: Http.Server = Http.createServer(); 
-    console.log(server); 
-
-    console.log("Server starting on port:" + _port);   
-
-    server.listen(_port); 
+    console.log("Port: " + port);
+    server.listen(port);
     server.addListener("request", handleRequest); 
-}
 
 
-function handleRequest(_request: any , _response: any) {
-    let postData = "";
-    _request.on('data', function (chunk: any) {
-        postData += chunk;
-    });
 
-    _request.on('end', function (chunk: any) {
-        console.log("hello!");
-        console.log(_request.url);
-        console.log(postData);
+    function handleRequest(_request: any , _response: any) {
+        
+        
+            console.log("hello!");
+            
 
-        allPostData += postData + "\n";
+            _response.setHeader("content-type", "text/plain; charset=utf-8");
+            _response.setHeader("Access-Control-Allow-Origin", "*");
 
-        _response.setHeader("content-type", "text/plain; charset=utf-8");
-        _response.setHeader("Access-Control-Allow-Origin", "*");
+            if (_request.url) {
+                let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true); 
+                for (let key in url.query) {
+                    _response.write(key + ":" + url.query[key]+ "<br/>");
+                }
+                let jsonString:string = JSON.stringify(url.query); 
+                _response.write(jsonString);
+            }
+            
+            _response.end();
+       
 
-        _response.write(
-            "URL: " + _request.url + "\n" +
-            "POST-Data: " + postData + "\n" +
-            "------ \n" + 
-            "All POST-Data: \n" + allPostData);
-        _response.end();
-    });
-
-}
+    }   
 }   

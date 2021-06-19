@@ -5,7 +5,7 @@
 // let div: HTMLDivElement = <HTMLDivElement>document.querySelector(".user")
 // div.innerHTML = name; //alida
 //window.alert bei den credit points 
-// window.allert -> server -> interface zwie strings -> selector - Daten selber; siwtch case -> was grade ankam.window.prompt
+// window.allert -> server -> interface zwei strings -> selector - Daten selber; siwtch case -> was grade ankam.window.prompt
 class StartScreen {
     constructor(id) {
         this.screenDiv = null;
