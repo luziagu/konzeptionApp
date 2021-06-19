@@ -2,9 +2,9 @@
 //fertig, erstellt die Namen dann auf der Map als HTML Elemente!
 var highfive;
 (function (highfive) {
+    const PlayerlistDiv = document.getElementById("player-list");
     setInterval(getPlayerListfromServer, 1000);
     async function getPlayerListfromServer() {
-        const PlayerlistDiv = document.getElementById("player-list");
         try {
             // send request and receive player list as response
             const PlayerListStr = await highfive.sendGetRequest("player-list");

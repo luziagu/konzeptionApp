@@ -13,10 +13,6 @@ export namespace highfive {
 
 let allPostData = "";
 
-
-
-
-
 let port: number | string | undefined = process.env.PORT; 
     if (port == undefined )
     port = 5001; 

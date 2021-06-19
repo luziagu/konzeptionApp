@@ -2,12 +2,11 @@
 
 namespace highfive{
 
-
+const PlayerlistDiv: HTMLDivElement = <HTMLInputElement>document.getElementById("player-list");
 
 setInterval(getPlayerListfromServer, 1000);
 
 async function getPlayerListfromServer(): Promise<void> {//baut aus den Daten dann ein sichtbares HTML Element
-  const PlayerlistDiv: HTMLDivElement = <HTMLInputElement>document.getElementById("player-list"); 
     try {
       // send request and receive player list as response
       const PlayerListStr: string = await sendGetRequest("player-list");
