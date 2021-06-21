@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "highfiveApp",
   "main": "server.js",
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
-    "ws": "^7.4.4"
+    "ws": "^7.5.0"
   },
   "devDependencies": {
-    "@types/node": "10.x",
-    "@types/ws": "^7.4.0"
+    "@types/node": "15.12.4",
+    "@types/ws": "^7.4.5"
   },
   "scripts": {
     "start": "node prototyp/server.js"
