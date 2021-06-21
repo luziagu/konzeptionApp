@@ -7,7 +7,7 @@ var highfive;
     async function getPlayerListfromServer() {
         try {
             // send request and receive player list as response
-            const PlayerListStr = await highfive.sendGetRequest("player-list");
+            const PlayerListStr = await sendGetRequest("player-list");
             const PlayerList = JSON.parse(PlayerListStr);
             let htmlStr = "<table>";
             // compose list of text paragraphs from message list

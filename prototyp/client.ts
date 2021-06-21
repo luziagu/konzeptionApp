@@ -42,11 +42,12 @@ namespace highfive { // name space to isolate identifiers from other examples
 
   }
 
-  function createInputPW(): void {
+  export function createInputPW(): void {
 
     let sielanfrageButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#spielanfrageSenden")
     sielanfrageButton.addEventListener("pointerup", handleClick);
-    
+    sielanfrageButton.style.display = "block"; 
+
     let startBox: HTMLDivElement = <HTMLDivElement>document.getElementById("start-screen")
     let Password: HTMLInputElement = document.createElement("input");
     Password.type = "password";
