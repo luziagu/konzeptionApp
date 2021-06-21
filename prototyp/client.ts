@@ -3,6 +3,10 @@ namespace highfive { // name space to isolate identifiers from other examples
   export interface ClientMessage {
     text: string;
   }
+  interface Message {
+    name: string;
+    data: string;
+}
   let socket: WebSocket = new WebSocket("wss://highfivekonzeption.herokuapp.com/");
 
   window.addEventListener("load", createInput);
@@ -30,7 +34,8 @@ namespace highfive { // name space to isolate identifiers from other examples
   }
 
   function handleClick(): void{
-    socket.send(JSON.stringify("Du hast eine Neue Spielanfrage")); 
+    let dataSend: Message = {name:userName, data:"Du hast eine Neue Spielanfrage"}
+    socket.send(JSON.stringify(dataSend)); 
 
   }
 
@@ -50,6 +55,7 @@ namespace highfive { // name space to isolate identifiers from other examples
 
   Button.addEventListener("click", showname);
 
+  let userName: string; 
   function showname(evt: Event): void {
     let NameInput: HTMLInputElement = <HTMLInputElement>document.querySelector(".inputname");
     let Div: HTMLDivElement = <HTMLDivElement>document.getElementById("text-fields");
@@ -58,6 +64,7 @@ namespace highfive { // name space to isolate identifiers from other examples
     Div.appendChild(name);
 
     name.innerHTML = NameInput.value;//Prinzip funktioniert
+    userName = NameInput.value; 
 
   }
 

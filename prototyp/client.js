@@ -19,7 +19,8 @@ var highfive;
         startBox.appendChild(NameInput);
     }
     function handleClick() {
-        socket.send(JSON.stringify("Du hast eine Neue Spielanfrage"));
+        let dataSend = { name: userName, data: "Du hast eine Neue Spielanfrage" };
+        socket.send(JSON.stringify(dataSend));
     }
     function createInputPW() {
         let startBox = document.getElementById("start-screen");
@@ -31,6 +32,7 @@ var highfive;
     }
     let Button = document.querySelector(".savename");
     Button.addEventListener("click", showname);
+    let userName;
     function showname(evt) {
         let NameInput = document.querySelector(".inputname");
         let Div = document.getElementById("text-fields");
@@ -38,6 +40,7 @@ var highfive;
         name.setAttribute("class", "logname");
         Div.appendChild(name);
         name.innerHTML = NameInput.value; //Prinzip funktioniert
+        userName = NameInput.value;
     }
 })(highfive || (highfive = {}));
 //# sourceMappingURL=client.js.map
