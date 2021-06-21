@@ -10,6 +10,7 @@ export namespace highfive {
     const clientSockets: Set<WebSocket> = new Set();
 
     server.on("connection", (socket: any) => {
+        clientSockets.add(socket);
         socket.on("message", (message: string) => {
             for (let socket of clientSockets) {
                 socket.send(message);

@@ -7,6 +7,7 @@ var highfive;
     const server = new WebSocket.Server({ port: port });
     const clientSockets = new Set();
     server.on("connection", (socket) => {
+        clientSockets.add(socket);
         socket.on("message", (message) => {
             for (let socket of clientSockets) {
                 socket.send(message);
