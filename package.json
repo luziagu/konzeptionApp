@@ -2,12 +2,13 @@
   "name": "highfivekonzeption",
   "version": "1.0.0",
   "description": "highfiveApp",
-  "main": "",
+  "main": "server.js",
   "dependencies": {
     "ws": "^7.4.4"
-    },
-  "engines": {
-    "node": "10.x"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.31",
+    "@types/ws": "^7.4.0"
   },
   "scripts": {
     "start": "node prototyp/server.js"
@@ -20,9 +21,6 @@
     "highfive"
   ],
   "author": "Luzia Gunzenhauser",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^14.14.31",
-    "@types/ws": "^7.4.0"
-    }
+  "license": "ISC"
+  
 }
