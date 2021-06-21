@@ -6,7 +6,12 @@ var highfive;
     window.addEventListener("load", createInputPW);
     socket.addEventListener("message", handleload);
     function handleload(message) {
-        console.log(message.data);
+        let carrier = JSON.parse(message.data);
+        let selector = carrier.name;
+        let data = carrier.data;
+        if (selector != userName) {
+            console.log(message.data);
+        }
     }
     function createInput() {
         let sielanfrageButton = document.querySelector("#spielanfrageSenden");

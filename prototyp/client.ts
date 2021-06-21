@@ -6,22 +6,26 @@ namespace highfive { // name space to isolate identifiers from other examples
   interface Message {
     name: string;
     data: string;
-}
+  }
   let socket: WebSocket = new WebSocket("wss://highfivekonzeption.herokuapp.com/");
 
   window.addEventListener("load", createInput);
   window.addEventListener("load", createInputPW);
-  socket.addEventListener("message", handleload); 
+  socket.addEventListener("message", handleload);
 
   function handleload(message: any): void {
-    console.log(message.data); 
-
+    let carrier: Message = <Message>JSON.parse(message.data);
+    let selector: string = carrier.name;
+    let data: string = carrier.data;
+    if (selector != userName){
+      console.log(message.data);
+    }
   }
 
   function createInput(): void {
 
     let sielanfrageButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#spielanfrageSenden")
-    sielanfrageButton.addEventListener("pointerup", handleClick); 
+    sielanfrageButton.addEventListener("pointerup", handleClick);
 
     let startBox: HTMLDivElement = <HTMLDivElement>document.getElementById("start-screen")
     let NameInput: HTMLInputElement = document.createElement("input");
@@ -33,9 +37,9 @@ namespace highfive { // name space to isolate identifiers from other examples
 
   }
 
-  function handleClick(): void{
-    let dataSend: Message = {name:userName, data:"Du hast eine Neue Spielanfrage"}
-    socket.send(JSON.stringify(dataSend)); 
+  function handleClick(): void {
+    let dataSend: Message = { name: userName, data: "Du hast eine Neue Spielanfrage" }
+    socket.send(JSON.stringify(dataSend));
 
   }
 
@@ -55,7 +59,7 @@ namespace highfive { // name space to isolate identifiers from other examples
 
   Button.addEventListener("click", showname);
 
-  let userName: string; 
+  let userName: string;
   function showname(evt: Event): void {
     let NameInput: HTMLInputElement = <HTMLInputElement>document.querySelector(".inputname");
     let Div: HTMLDivElement = <HTMLDivElement>document.getElementById("text-fields");
@@ -64,7 +68,7 @@ namespace highfive { // name space to isolate identifiers from other examples
     Div.appendChild(name);
 
     name.innerHTML = NameInput.value;//Prinzip funktioniert
-    userName = NameInput.value; 
+    userName = NameInput.value;
 
   }
 
