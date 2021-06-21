@@ -19,6 +19,7 @@ namespace highfive { // name space to isolate identifiers from other examples
     let data: string = carrier.data;
     if (selector != userName){
       console.log(message.data);
+      alert(message.data)
     }
   }
 
@@ -36,7 +37,7 @@ namespace highfive { // name space to isolate identifiers from other examples
   }
 
   function handleClick(): void {
-    let dataSend: Message = { name: userName, data: "Du hast eine Neue Spielanfrage" }
+    let dataSend: Message = { name: userName, data: "möchte dir eine Herausforderung senden" }
     socket.send(JSON.stringify(dataSend));
 
   }

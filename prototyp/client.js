@@ -11,6 +11,7 @@ var highfive;
         let data = carrier.data;
         if (selector != userName) {
             console.log(message.data);
+            alert(message.data);
         }
     }
     function createInput() {
@@ -22,7 +23,7 @@ var highfive;
         startBox.appendChild(NameInput);
     }
     function handleClick() {
-        let dataSend = { name: userName, data: "Du hast eine Neue Spielanfrage" };
+        let dataSend = { name: userName, data: "möchte dir eine Herausforderung senden" };
         socket.send(JSON.stringify(dataSend));
     }
     function createInputPW() {
