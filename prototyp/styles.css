@@ -138,7 +138,7 @@ color:white;
   
 }
 
-#spielanfrageSenden{
+button#spielanfrageSenden{
   top: 300px; 
   display: block; 
   Position: relative; 
