@@ -1,15 +1,25 @@
 "use strict";
 var highfive;
 (function (highfive) {
+    let socket = new WebSocket("wss://highfivekonzeption.herokuapp.com/");
     window.addEventListener("load", createInput);
     window.addEventListener("load", createInputPW);
+    socket.addEventListener("message", handleload);
+    function handleload(message) {
+        console.log(message.data);
+    }
     function createInput() {
+        let sielanfrageButton = document.querySelector("#spielanfrageSenden");
+        sielanfrageButton.addEventListener("pointerup", handleClick);
         let startBox = document.getElementById("start-screen");
         let NameInput = document.createElement("input");
         NameInput.type = "text";
         NameInput.setAttribute("class", "inputname");
         NameInput.placeholder = "Type in your Name";
         startBox.appendChild(NameInput);
+    }
+    function handleClick() {
+        socket.send("Du hast eine Neue Spielanfrage");
     }
     function createInputPW() {
         let startBox = document.getElementById("start-screen");

@@ -1,49 +1,21 @@
-
-import * as Http from "http";
-import * as Url from "url"; 
+import * as WebSocket from "ws";
 
 export namespace highfive {
 
-   
-   
-    //const http = require('http');
 
-// Create HTTP Server
-// Recieve data from request
-// Respond data in console and to body
+    const port: number = Number(process.env.PORT);
 
-  
-    let server: Http.Server = Http.createServer();
-    let port: number | string | undefined = process.env.PORT; 
-        if (port == undefined )
-        port = 5001; 
+    const server: WebSocket.Server = new WebSocket.Server({ port: port });
 
-    console.log("Port: " + port);
-    server.listen(port);
-    server.addListener("request", handleRequest); 
+    const clientSockets: Set<WebSocket> = new Set();
 
-
-
-    function handleRequest(_request: any , _response: any) {
-        
-        
-            console.log("hello!");
-            
-
-            _response.setHeader("content-type", "text/plain; charset=utf-8");
-            _response.setHeader("Access-Control-Allow-Origin", "*");
-
-            if (_request.url) {
-                let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true); 
-                for (let key in url.query) {
-                    _response.write(key + ":" + url.query[key]+ "<br/>");
-                }
-                let jsonString:string = JSON.stringify(url.query); 
-                _response.write(jsonString);
+    server.on("connection", (socket: any) => {
+        socket.on("message", (message: string) => {
+            for (let socket of clientSockets) {
+                socket.send(message);
             }
-            
-            _response.end();
-       
+        });
+    })
 
-    }   
-}   
+
+}
