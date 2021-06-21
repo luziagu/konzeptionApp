@@ -19,7 +19,7 @@ var highfive;
         startBox.appendChild(NameInput);
     }
     function handleClick() {
-        socket.send("Du hast eine Neue Spielanfrage");
+        socket.send(JSON.stringify("Du hast eine Neue Spielanfrage"));
     }
     function createInputPW() {
         let startBox = document.getElementById("start-screen");

@@ -30,7 +30,7 @@ namespace highfive { // name space to isolate identifiers from other examples
   }
 
   function handleClick(): void{
-    socket.send("Du hast eine Neue Spielanfrage"); 
+    socket.send(JSON.stringify("Du hast eine Neue Spielanfrage")); 
 
   }
 
