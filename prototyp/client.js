@@ -27,6 +27,8 @@ var highfive;
         socket.send(JSON.stringify(dataSend));
     }
     function createInputPW() {
+        let sielanfrageButton = document.querySelector("#spielanfrageSenden");
+        sielanfrageButton.addEventListener("pointerup", handleClick);
         let startBox = document.getElementById("start-screen");
         let Password = document.createElement("input");
         Password.type = "password";
@@ -38,8 +40,6 @@ var highfive;
     Button.addEventListener("click", showname);
     let userName;
     function showname(evt) {
-        let sielanfrageButton = document.querySelector("#spielanfrageSenden");
-        sielanfrageButton.addEventListener("pointerup", handleClick);
         let NameInput = document.querySelector(".inputname");
         let Div = document.getElementById("text-fields");
         let name = document.createElement("div");

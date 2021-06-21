@@ -24,7 +24,7 @@ class StartScreen {
   constructor(id: string) {
     this.screenDiv = <HTMLDivElement>document.getElementById(id);
     this.textDiv = <HTMLDivElement>this.screenDiv.querySelector("p");
-   
+
   }
 
 
@@ -40,13 +40,15 @@ class StartScreen {
 
   start(): Promise<void> {
 
-  
+
     return new Promise((resolve) => {
       this.screenDiv.style.display = "block";
 
-      this.setText("click the Button to start");
+      this.setText("click the button to start");
 
       let Savebutton: HTMLButtonElement = <HTMLButtonElement>document.querySelector(".savename");
+      let sielanfrageButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#spielanfrageSenden")
+      sielanfrageButton.style.display = "none";
 
       Savebutton.addEventListener("click", () => {
 

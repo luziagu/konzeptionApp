@@ -25,8 +25,10 @@ class StartScreen {
     start() {
         return new Promise((resolve) => {
             this.screenDiv.style.display = "block";
-            this.setText("click the Button to start");
+            this.setText("click the button to start");
             let Savebutton = document.querySelector(".savename");
+            let sielanfrageButton = document.querySelector("#spielanfrageSenden");
+            sielanfrageButton.style.display = "none";
             Savebutton.addEventListener("click", () => {
                 this.setText("checking for resources...");
                 const promises = [];

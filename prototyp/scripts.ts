@@ -27,18 +27,10 @@
   ];
 
 
-  userPointDiv.addEventListener("touchend", playRequest);
-  userPointDiv.addEventListener("mouseup", playRequest);
-  paulPointDiv.addEventListener("touchend", playRequest);
-  paulPointDiv.addEventListener("mouseup", playRequest);
-  luisaPointDiv.addEventListener("touchend", playRequest);
-  luisaPointDiv.addEventListener("mouseup", playRequest);
   //userPointDiv.addEventListener("touchend", Answer);
   // paulPointDiv.addEventListener("touchend", Answer);
   // luisaPointDiv.addEventListener("mouseup", Answer);
 
-  Profile.addEventListener("mouseup", playRequest); 
-  Profile.addEventListener("touchend", playRequest);
   top.addEventListener("click", Countfive);
  
 
@@ -55,9 +47,7 @@
 
   window.addEventListener("resize", calculatePoints);
 
-  function playRequest(e: MouseEvent | TouchEvent) {
-    alert("Möchtest du eine Spielanfrage senden?")
-  }
+ 
 
   // async function Answer(_event) {
 

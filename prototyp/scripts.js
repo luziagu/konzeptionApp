@@ -16,17 +16,9 @@ var highfive;
         { label: "Paul", element: paulPointDiv, text: paulTextDiv, latitude: 48.049993, longitude: 8.210727 },
         { label: "Luisa", element: luisaPointDiv, text: luisaTextDiv, latitude: 48.095364, longitude: 8.154895 },
     ];
-    userPointDiv.addEventListener("touchend", playRequest);
-    userPointDiv.addEventListener("mouseup", playRequest);
-    paulPointDiv.addEventListener("touchend", playRequest);
-    paulPointDiv.addEventListener("mouseup", playRequest);
-    luisaPointDiv.addEventListener("touchend", playRequest);
-    luisaPointDiv.addEventListener("mouseup", playRequest);
     //userPointDiv.addEventListener("touchend", Answer);
     // paulPointDiv.addEventListener("touchend", Answer);
     // luisaPointDiv.addEventListener("mouseup", Answer);
-    Profile.addEventListener("mouseup", playRequest);
-    Profile.addEventListener("touchend", playRequest);
     top.addEventListener("click", Countfive);
     // create start screen and register 
     const geoLocationManager = new GeoLocationManager();
@@ -37,9 +29,6 @@ var highfive;
     // start (creates audio context )
     startScreen.start();
     window.addEventListener("resize", calculatePoints);
-    function playRequest(e) {
-        alert("Möchtest du eine Spielanfrage senden?");
-    }
     // async function Answer(_event) {
     //   let dataServer = JSON.stringify("Luzia hat eine Spielanfrage gesendet. Möchtest du sie annehmen?"); //wandelt Array in einen JSON string um, damit der Server es lesen kann 
     //   let query = new URLSearchParams(dataServer); //query aus den Daten kreieren 

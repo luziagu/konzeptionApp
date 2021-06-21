@@ -26,6 +26,7 @@ width: 200px;
 height: 28px;
 left: 43.5%;
 border-radius: 6px;
+padding: 15px;
 }
 
 .inputname {
@@ -35,6 +36,7 @@ width: 200px;
 height: 28px;
 left: 43.5%;
 border-radius: 6px;
+padding: 15px;
 }
 
 .savename {
@@ -143,6 +145,7 @@ button#spielanfrageSenden{
   display: block; 
   Position: relative; 
   z-index: 100000;
+  
 }
 
 .point {
@@ -192,11 +195,13 @@ button#spielanfrageSenden{
   position: absolute;
   left: 20px;
   bottom: 20px;
+
 }
 
 .text-field {
   font-size: 1em;
   padding: 2px;
+
 }
 
 .text-field.user {
