@@ -26,7 +26,7 @@ width: 200px;
 height: 28px;
 left: 20%;
 border-radius: 6px;
-margin: 30px;
+padding: 30px;
 border-style: none;
 }
 
@@ -37,13 +37,13 @@ width: 200px;
 height: 28px;
 left: 20%;
 border-radius: 6px;
-margin: 30px;
+padding: 30px;
 border-style: none;
 }
 
 .savename {
 position: absolute;
-top: 70%;
+top: 62%;
 width: 210px;
 height: 28px;
 left: 25%;
