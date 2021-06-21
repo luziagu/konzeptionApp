@@ -12,7 +12,6 @@ var highfive;
     let port = process.env.PORT;
     if (port == undefined)
         port = 5001;
-    server.listen(port);
     console.log("Port: " + port);
     server.listen(port);
     server.addListener("request", handleRequest);
