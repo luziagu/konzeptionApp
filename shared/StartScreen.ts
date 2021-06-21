@@ -44,7 +44,7 @@ class StartScreen {
     return new Promise((resolve) => {
       this.screenDiv.style.display = "block";
 
-      this.setText("Klicke den Button um dich einzuloggen");
+      this.setText("Gleich kannst du starten");
 
       let Savebutton: HTMLButtonElement = <HTMLButtonElement>document.querySelector(".savename");
       let sielanfrageButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#spielanfrageSenden")
