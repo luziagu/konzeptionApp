@@ -24,8 +24,6 @@ namespace highfive { // name space to isolate identifiers from other examples
 
   function createInput(): void {
 
-    let sielanfrageButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#spielanfrageSenden")
-    sielanfrageButton.addEventListener("pointerup", handleClick);
 
     let startBox: HTMLDivElement = <HTMLDivElement>document.getElementById("start-screen")
     let NameInput: HTMLInputElement = document.createElement("input");
@@ -61,6 +59,8 @@ namespace highfive { // name space to isolate identifiers from other examples
 
   let userName: string;
   function showname(evt: Event): void {
+    let sielanfrageButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#spielanfrageSenden")
+    sielanfrageButton.addEventListener("pointerup", handleClick);
     let NameInput: HTMLInputElement = <HTMLInputElement>document.querySelector(".inputname");
     let Div: HTMLDivElement = <HTMLDivElement>document.getElementById("text-fields");
     let name = document.createElement("div");
