@@ -46,7 +46,6 @@ namespace highfive { // name space to isolate identifiers from other examples
 
     let sielanfrageButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#spielanfrageSenden")
     sielanfrageButton.addEventListener("pointerup", handleClick);
-    sielanfrageButton.style.display = "block"; 
 
     let startBox: HTMLDivElement = <HTMLDivElement>document.getElementById("start-screen")
     let Password: HTMLInputElement = document.createElement("input");

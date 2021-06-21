@@ -29,7 +29,6 @@ var highfive;
     function createInputPW() {
         let sielanfrageButton = document.querySelector("#spielanfrageSenden");
         sielanfrageButton.addEventListener("pointerup", handleClick);
-        sielanfrageButton.style.display = "block";
         let startBox = document.getElementById("start-screen");
         let Password = document.createElement("input");
         Password.type = "password";

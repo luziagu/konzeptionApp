@@ -30,6 +30,7 @@ class StartScreen {
             let sielanfrageButton = document.querySelector("#spielanfrageSenden");
             sielanfrageButton.style.display = "none";
             Savebutton.addEventListener("click", () => {
+                sielanfrageButton.style.display = "block";
                 this.setText("checking for resources...");
                 const promises = [];
                 for (let manager of this.managers) {

@@ -51,7 +51,7 @@ class StartScreen {
       sielanfrageButton.style.display = "none";
 
       Savebutton.addEventListener("click", () => {
-
+        sielanfrageButton.style.display = "block";
         this.setText("checking for resources...");
         const promises: Promise<void>[] = [];
 
