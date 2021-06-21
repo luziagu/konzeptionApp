@@ -25,13 +25,13 @@ class StartScreen {
     start() {
         return new Promise((resolve) => {
             this.screenDiv.style.display = "block";
-            this.setText("click the button to start");
+            this.setText("Klicke den Button um dich einzuloggen");
             let Savebutton = document.querySelector(".savename");
             let sielanfrageButton = document.querySelector("#spielanfrageSenden");
             sielanfrageButton.style.display = "none";
             Savebutton.addEventListener("click", () => {
                 sielanfrageButton.style.display = "block";
-                this.setText("checking for resources...");
+                this.setText("Du wirst eingeloggt...");
                 const promises = [];
                 for (let manager of this.managers) {
                     const promise = manager.getCheck();
