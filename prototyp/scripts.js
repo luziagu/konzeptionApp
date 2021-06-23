@@ -6,8 +6,12 @@ var highfive;
     const userPointDiv = document.querySelector(".point.user");
     const paulPointDiv = document.querySelector(".point.paul");
     const luisaPointDiv = document.querySelector(".point.luisa");
-    const Profile = document.querySelector(".myProfile");
     const top = document.querySelector(".thumbsup");
+    let overlayButton = document.querySelector("#chooseChallenge");
+    let overlayDiv = document.querySelector(".overlayChallenge");
+    let challengeOne = document.querySelector("#challengeOne");
+    let challengeTwo = document.querySelector("#challengeTwo");
+    let challengeThree = document.querySelector("#challengeThree");
     const userTextDiv = document.querySelector(".text-field.user");
     const paulTextDiv = document.querySelector(".text-field.paul");
     const luisaTextDiv = document.querySelector(".text-field.luisa");
@@ -20,6 +24,10 @@ var highfive;
     // paulPointDiv.addEventListener("touchend", Answer);
     // luisaPointDiv.addEventListener("mouseup", Answer);
     top.addEventListener("click", Countfive);
+    overlayButton.addEventListener("pointerup", overlay);
+    challengeOne.addEventListener("pointerup", closeOverlay);
+    challengeTwo.addEventListener("pointerup", closeOverlay);
+    challengeThree.addEventListener("pointerup", closeOverlay);
     // create start screen and register 
     const geoLocationManager = new GeoLocationManager();
     geoLocationManager.onLocation = onLoction;
@@ -29,6 +37,14 @@ var highfive;
     // start (creates audio context )
     startScreen.start();
     window.addEventListener("resize", calculatePoints);
+    function overlay() {
+        console.log("click");
+        overlayDiv.style.visibility = "visible";
+    }
+    function closeOverlay() {
+        console.log("click");
+        overlayDiv.style.visibility = "hidden";
+    }
     // async function Answer(_event) {
     //   let dataServer = JSON.stringify("Luzia hat eine Spielanfrage gesendet. Möchtest du sie annehmen?"); //wandelt Array in einen JSON string um, damit der Server es lesen kann 
     //   let query = new URLSearchParams(dataServer); //query aus den Daten kreieren 

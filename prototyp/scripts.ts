@@ -1,5 +1,5 @@
 
- namespace highfive {
+namespace highfive {
   interface Point {
     label: string;
     element: HTMLDivElement;
@@ -13,17 +13,21 @@
   const userPointDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".point.user");
   const paulPointDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".point.paul");
   const luisaPointDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".point.luisa");
-  const Profile: HTMLDivElement = <HTMLDivElement>document.querySelector(".myProfile");
   const top: HTMLButtonElement = <HTMLButtonElement>document.querySelector(".thumbsup");
+  let overlayButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#chooseChallenge");
+  let overlayDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".overlayChallenge"); 
+  let challengeOne: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#challengeOne");
+  let challengeTwo: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#challengeTwo");
+  let challengeThree: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#challengeThree");
 
   const userTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.user");
   const paulTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.paul");
   const luisaTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.luisa");
-  
+
   const points: Point[] = [
     { label: "Kevin", element: userPointDiv, text: userTextDiv, latitude: 0, longitude: 0 },
-    { label: "Paul", element: paulPointDiv,  text: paulTextDiv, latitude: 48.049993, longitude: 8.210727 },
-    { label: "Luisa", element: luisaPointDiv,  text: luisaTextDiv, latitude: 48.095364, longitude: 8.154895 },
+    { label: "Paul", element: paulPointDiv, text: paulTextDiv, latitude: 48.049993, longitude: 8.210727 },
+    { label: "Luisa", element: luisaPointDiv, text: luisaTextDiv, latitude: 48.095364, longitude: 8.154895 },
   ];
 
 
@@ -32,7 +36,12 @@
   // luisaPointDiv.addEventListener("mouseup", Answer);
 
   top.addEventListener("click", Countfive);
- 
+  overlayButton.addEventListener("pointerup", overlay); 
+  challengeOne.addEventListener("pointerup", closeOverlay)
+  challengeTwo.addEventListener("pointerup", closeOverlay)
+  challengeThree.addEventListener("pointerup", closeOverlay)
+
+
 
   // create start screen and register 
   const geoLocationManager: GeoLocationManager = new GeoLocationManager();
@@ -47,7 +56,23 @@
 
   window.addEventListener("resize", calculatePoints);
 
- 
+
+  function overlay(): void {
+
+    console.log("click");
+    overlayDiv.style.visibility = "visible"; 
+
+  }
+
+  function closeOverlay(): void {
+
+    console.log("click");
+    overlayDiv.style.visibility = "hidden"; 
+
+  }
+
+
+
 
   // async function Answer(_event) {
 
@@ -60,7 +85,7 @@
   //boolean = true,
   //if boolean == true, dann nächste aktion
   // }
- 
+
   function onLoction(coord: GeolocationCoordinates, timestamp: number): void {
     const userPoint: Point = points[0];
 
@@ -76,29 +101,30 @@
   }
 
 
-  
-// let Credits: any = document.querySelector("#creditpoints"); 
-// // let Inhalt: number = Credits.innerHTML;
-// let five: number = 0;
 
-// //Bei click
-// five += 5; 
+  // let Credits: any = document.querySelector("#creditpoints"); 
+  // // let Inhalt: number = Credits.innerHTML;
+  // let five: number = 0;
 
-// if (five != 0) {
-// Credits.innerHTML = five + "";
+  // //Bei click
+  // five += 5; 
 
- function Countfive(): void {
+  // if (five != 0) {
+  // Credits.innerHTML = five + "";
 
-   let Credits: any = document.querySelector("#creditpoints"); 
-   let index: number = 0 + parseInt(Credits.innerHTML);
-   index += 5;
-  
+  function Countfive(): void {
+
+    let Credits: any = document.querySelector("#creditpoints");
+    let index: number = 0 + parseInt(Credits.innerHTML);
+    index += 5;
+
     if (index != 0) {
       Credits.innerHTML = index + "";
-      
-    // }
-    // alert(String.fromCodePoint(0x1f389) +  "Congratulations, You gained a Credit Point!")
-  }}
+
+      // }
+      // alert(String.fromCodePoint(0x1f389) +  "Congratulations, You gained a Credit Point!")
+    }
+  }
 
   function calculatePoints(): void {
     let maxLatitude: number = -Infinity;
@@ -106,7 +132,7 @@
     let maxLongitude: number = -Infinity;
     let minLongitude: number = Infinity;
 
-    for (let point of points) {  
+    for (let point of points) {
       maxLatitude = Math.max(maxLatitude, point.latitude);
       minLatitude = Math.min(minLatitude, point.latitude);
       maxLongitude = Math.max(maxLongitude, point.longitude);
@@ -125,9 +151,9 @@
     const scaleX: number = (size - 2 * margin) / distLongitude;
     const scaleY: number = (size - 2 * margin) / distLatitude;
 
-    for (let point of points) { 
-      const x: number = xMargin + scaleX * (point.longitude - minLongitude); 
-      const y: number = yMargin + scaleY * (point.latitude - minLatitude); 
+    for (let point of points) {
+      const x: number = xMargin + scaleX * (point.longitude - minLongitude);
+      const y: number = yMargin + scaleY * (point.latitude - minLatitude);
 
       point.element.style.left = `${x}px`;
       point.element.style.bottom = `${y}px`;

@@ -5,6 +5,9 @@ interface ResourceManager {
 }
 
 
+let chooseChallenge: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#chooseChallenge");
+let Savebutton: HTMLButtonElement = <HTMLButtonElement>document.querySelector(".savename");
+let spielanfrageButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#spielanfrageSenden");
 // Textfielduser -> nach der eingabe das Textfield selektier und mit inner html den wert aus dem Input feld inputfield.value
 
 // let input: HTMLInputField = <HTMLInputField>document.querySelector("input"); 
@@ -26,6 +29,7 @@ class StartScreen {
     this.textDiv = <HTMLDivElement>this.screenDiv.querySelector("p");
 
   }
+  
 
 
   setText(text: string): void {
@@ -38,20 +42,23 @@ class StartScreen {
     this.textDiv.innerHTML = text;
   }
 
+  
   start(): Promise<void> {
 
-
+  
     return new Promise((resolve) => {
+    
       this.screenDiv.style.display = "block";
+      spielanfrageButton.style.display = "none";
+      chooseChallenge.style.display = "none";
+
 
       this.setText("Gleich kannst du starten");
 
-      let Savebutton: HTMLButtonElement = <HTMLButtonElement>document.querySelector(".savename");
-      let sielanfrageButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#spielanfrageSenden")
-      sielanfrageButton.style.display = "none";
-
+      
+  
       Savebutton.addEventListener("click", () => {
-        sielanfrageButton.style.display = "block";
+        
         this.setText("Du wirst eingeloggt...");
         const promises: Promise<void>[] = [];
 
@@ -79,5 +86,8 @@ class StartScreen {
 
   close(): void {
     this.screenDiv.style.display = "none";
+    spielanfrageButton.style.display = "block";
+    chooseChallenge.style.display = "block";
+    
   }
 }

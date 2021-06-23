@@ -1,4 +1,7 @@
 "use strict";
+let chooseChallenge = document.querySelector("#chooseChallenge");
+let Savebutton = document.querySelector(".savename");
+let spielanfrageButton = document.querySelector("#spielanfrageSenden");
 // Textfielduser -> nach der eingabe das Textfield selektier und mit inner html den wert aus dem Input feld inputfield.value
 // let input: HTMLInputField = <HTMLInputField>document.querySelector("input"); 
 // let name: string = input.value; 
@@ -25,12 +28,10 @@ class StartScreen {
     start() {
         return new Promise((resolve) => {
             this.screenDiv.style.display = "block";
+            spielanfrageButton.style.display = "none";
+            chooseChallenge.style.display = "none";
             this.setText("Gleich kannst du starten");
-            let Savebutton = document.querySelector(".savename");
-            let sielanfrageButton = document.querySelector("#spielanfrageSenden");
-            sielanfrageButton.style.display = "none";
             Savebutton.addEventListener("click", () => {
-                sielanfrageButton.style.display = "block";
                 this.setText("Du wirst eingeloggt...");
                 const promises = [];
                 for (let manager of this.managers) {
@@ -54,6 +55,8 @@ class StartScreen {
     }
     close() {
         this.screenDiv.style.display = "none";
+        spielanfrageButton.style.display = "block";
+        chooseChallenge.style.display = "block";
     }
 }
 //# sourceMappingURL=StartScreen.js.map

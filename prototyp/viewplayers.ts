@@ -1,6 +1,6 @@
 //fertig, erstellt die Namen dann auf der Map als HTML Elemente!
 
-namespace highfive{
+/*namespace highfive{
 
 const PlayerlistDiv: HTMLDivElement = <HTMLInputElement>document.getElementById("player-list");
 
@@ -27,4 +27,4 @@ async function getPlayerListfromServer(): Promise<void> {//baut aus den Daten da
   }
 
 
-}
+}*/

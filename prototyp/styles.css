@@ -11,8 +11,8 @@ body {
 }
 #profile {
   position: absolute;
-  top: -10;
-  left: -10;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   margin: auto;
@@ -55,12 +55,9 @@ color:white;
 
 .logname {
   position: fixed;
-  top: 190px;
-  right: -250px;
-  width: 200px;
-  height: 50px;
-  width: 400px;
-  height: 400px;
+  top: 130px;
+  right: 10px;
+  left: 270px; 
   color: rgb(52, 51, 51);
   font-size: 25px;
   font-family:'Arial Narrow Bold', sans-serif;
@@ -68,8 +65,8 @@ color:white;
 
 .myProfile {
   position: absolute;
-  top: 50px;
-  right: 50px;
+  top: 10px;
+  right: 10px;
   width: 100px;
   height: 100px;
   margin-bottom: -10px;
@@ -144,7 +141,8 @@ color:white;
 
 button#spielanfrageSenden{
   top: 300px; 
-  left: 50%; 
+  left: 30%; 
+  padding: 10px; 
   Position: relative; 
   z-index: 100000;
   border-radius: 5px;
@@ -152,6 +150,18 @@ button#spielanfrageSenden{
   background-color:white;
 
   
+}
+button#chooseChallenge{
+
+  top: 320px; 
+  left: 25%; 
+  padding: 10px; 
+  Position: relative; 
+  z-index: 100000;
+  border-radius: 5px;
+  border-style: none;
+  background-color:white;
+
 }
 
 .point {
@@ -221,3 +231,62 @@ button#spielanfrageSenden{
 .text-field.luisa {
   color: rgb(3, 123, 111);
 }
+
+.overlayChallenge{
+  position: absolute;
+  align-content: center;
+  z-index: 1000000;
+  background:darkslategrey; 
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+  visibility: hidden;
+  top: 30%; 
+  left: 15%; 
+
+}
+
+button#challengeOne {
+  left: 80px; 
+  right: 80px; 
+  top: 20px; 
+  padding: 15px; 
+  Position: relative; 
+  border-radius: 5px;
+  border-style: none;
+  background-color:orange;
+  color: white; 
+
+}
+
+button#challengeTwo {
+  left: 25px; 
+  right: 25px; 
+  top: 40px; 
+  padding: 15px; 
+  Position:relative; 
+  border-radius: 5px;
+  border-style: none;
+  background-color:orange;
+  color: white; 
+
+}
+button#challengeThree {
+  left: 60px; 
+  right: 60px; 
+  top: 60px; 
+  padding: 15px; 
+  Position:relative; 
+  border-radius: 5px;
+  border-style: none;
+  background-color:orange;
+  color: white; 
+
+}
+
+h4{
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
