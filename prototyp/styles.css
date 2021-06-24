@@ -307,7 +307,7 @@ button#startChallenge{
   border-style: none;
   background-color:orange;
   color: white; 
-  z-index: 1111000000;
+  z-index: 1000000;
 }
 
 h4{
