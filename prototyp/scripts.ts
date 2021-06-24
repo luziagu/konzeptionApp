@@ -19,7 +19,7 @@ namespace highfive {
   export let challengeOne: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#challengeOne");
   export let challengeTwo: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#challengeTwo");
   export let challengeThree: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#challengeThree");
-  let startChallenge: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#startChallenge");
+  export let startChallenge: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#startChallenge");
   const userTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.user");
   const paulTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.paul");
   const luisaTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.luisa");

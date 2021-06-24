@@ -24,6 +24,7 @@ namespace highfive { // name space to isolate identifiers from other examples
       challengeOverlay.style.visibility = "visible"; 
       challengeOverlay.innerText += selector.toString(); 
       challengeOverlay.innerText += data.toString();
+      
 
 
     }

@@ -12,7 +12,7 @@ var highfive;
     highfive.challengeOne = document.querySelector("#challengeOne");
     highfive.challengeTwo = document.querySelector("#challengeTwo");
     highfive.challengeThree = document.querySelector("#challengeThree");
-    let startChallenge = document.querySelector("#startChallenge");
+    highfive.startChallenge = document.querySelector("#startChallenge");
     const userTextDiv = document.querySelector(".text-field.user");
     const paulTextDiv = document.querySelector(".text-field.paul");
     const luisaTextDiv = document.querySelector(".text-field.luisa");
@@ -26,7 +26,7 @@ var highfive;
     // luisaPointDiv.addEventListener("mouseup", Answer);
     top.addEventListener("click", Countfive);
     overlayButton.addEventListener("pointerup", overlay);
-    startChallenge.addEventListener("pointerup", closeOverlay);
+    highfive.startChallenge.addEventListener("pointerup", closeOverlay);
     /*challengeOne.addEventListener("pointerup", closeOverlay)
     challengeTwo.addEventListener("pointerup", closeOverlay)
     challengeThree.addEventListener("pointerup", closeOverlay)*/
@@ -43,7 +43,7 @@ var highfive;
         highfive.overlayDiv.style.visibility = "visible";
     }
     function closeOverlay() {
-        startChallenge.style.visibility = "hidden";
+        highfive.startChallenge.style.visibility = "hidden";
     }
     // async function Answer(_event) {
     //   let dataServer = JSON.stringify("Luzia hat eine Spielanfrage gesendet. Möchtest du sie annehmen?"); //wandelt Array in einen JSON string um, damit der Server es lesen kann 
