@@ -22,9 +22,8 @@ namespace highfive { // name space to isolate identifiers from other examples
       alert(message.data); 
       let challengeOverlay: HTMLDivElement = <HTMLDivElement>document.getElementById("overlaySend")
       challengeOverlay.style.visibility = "visible"; 
-      selector.toString(); 
-      data.toString();
-      challengeOverlay.innerText = selector + data; 
+      challengeOverlay.innerText += selector.toString(); 
+      challengeOverlay.innerText += data.toString();
 
 
     }
