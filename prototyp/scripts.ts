@@ -15,7 +15,7 @@ namespace highfive {
   const luisaPointDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".point.luisa");
   const top: HTMLButtonElement = <HTMLButtonElement>document.querySelector(".thumbsup");
   let overlayButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#chooseChallenge");
-  let overlayDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".overlayChallenge"); 
+  export let overlayDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".overlayChallenge"); 
   export let challengeOne: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#challengeOne");
   export let challengeTwo: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#challengeTwo");
   export let challengeThree: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#challengeThree");
@@ -37,9 +37,9 @@ namespace highfive {
 
   top.addEventListener("click", Countfive);
   overlayButton.addEventListener("pointerup", overlay); 
-  challengeOne.addEventListener("pointerup", closeOverlay)
+  /*challengeOne.addEventListener("pointerup", closeOverlay)
   challengeTwo.addEventListener("pointerup", closeOverlay)
-  challengeThree.addEventListener("pointerup", closeOverlay)
+  challengeThree.addEventListener("pointerup", closeOverlay)*/
 
 
 
@@ -64,11 +64,11 @@ namespace highfive {
 
   }
 
-  function closeOverlay(): void {
+  /*function closeOverlay(): void {
 
     overlayDiv.style.visibility = "hidden"; 
 
-  }
+  }*/
 
 
 
