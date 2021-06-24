@@ -21,6 +21,7 @@ namespace highfive { // name space to isolate identifiers from other examples
       console.log(message.data);
       alert(message.data); 
     }
+
   }
 
   function createInput(): void {
@@ -42,10 +43,30 @@ namespace highfive { // name space to isolate identifiers from other examples
 
   }
 
+  function handleChallengeOne(): void {
+    let dataSend: Message = { name: userName, data: "hat dir Folgende Challenge gesendet: Drehe dich im Kreis." }
+    socket.send(JSON.stringify(dataSend));
+  }
+
+  function handleChallengeTwo(): void {
+    let dataSend: Message = { name: userName, data: "hat dir Folgende Challenge gesendet: Singe ganz laut Alle meine Entchen." }
+    socket.send(JSON.stringify(dataSend));
+  }
+
+  function handleChallengeThree(): void {
+    let dataSend: Message = { name: userName, data: "hat dir Folgende Challenge gesendet: Klatsche drei mal laut in die Hände." }
+    socket.send(JSON.stringify(dataSend));
+  }
+
   export function createInputPW(): void {
 
     let sielanfrageButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#spielanfrageSenden")
     sielanfrageButton.addEventListener("pointerup", handleClick);
+    
+    challengeOne.addEventListener("pointerup", handleChallengeOne); 
+    challengeTwo.addEventListener("pointerup", handleChallengeTwo);
+    challengeThree.addEventListener("pointerup", handleChallengeThree);
+
 
     let startBox: HTMLDivElement = <HTMLDivElement>document.getElementById("start-screen")
     let Password: HTMLInputElement = document.createElement("input");
