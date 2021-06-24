@@ -58,8 +58,6 @@ namespace highfive {
 
 
   function overlay(): void {
-
-    
     overlayDiv.style.visibility = "visible"; 
 
   }
