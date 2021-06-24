@@ -12,6 +12,9 @@ var highfive;
         if (selector != userName) {
             console.log(message.data);
             alert(message.data);
+            let challengeOverlay = document.getElementById("overlaySend");
+            challengeOverlay.style.visibility = "visible";
+            challengeOverlay.innerText = carrier + selector;
         }
     }
     function createInput() {

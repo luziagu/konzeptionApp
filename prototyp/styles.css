@@ -246,6 +246,20 @@ button#chooseChallenge{
 
 }
 
+#overlaySend{
+  position: absolute;
+  align-content: center;
+  z-index: 1000000;
+  background:darkslategrey; 
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+  visibility: hidden;
+  top: 30%; 
+  left: 15%; 
+  color: white;
+}
+
 button#challengeOne {
   left: 80px; 
   right: 80px; 
@@ -282,6 +296,17 @@ button#challengeThree {
   background-color:orange;
   color: white; 
 
+}
+button#startChallenge{
+  left: 40px; 
+  right: 40px; 
+  top: 60px; 
+  padding: 15px; 
+  Position:relative; 
+  border-radius: 5px;
+  border-style: none;
+  background-color:orange;
+  color: white; 
 }
 
 h4{

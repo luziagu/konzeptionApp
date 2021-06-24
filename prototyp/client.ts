@@ -20,6 +20,11 @@ namespace highfive { // name space to isolate identifiers from other examples
     if (selector != userName){
       console.log(message.data);
       alert(message.data); 
+      let challengeOverlay: HTMLDivElement = <HTMLDivElement>document.getElementById("overlaySend")
+      challengeOverlay.style.visibility = "visible"; 
+      challengeOverlay.innerText = carrier + selector;
+
+
     }
 
   }
