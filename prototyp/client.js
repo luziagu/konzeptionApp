@@ -26,9 +26,28 @@ var highfive;
         let dataSend = { name: userName, data: "möchte dir eine Herausforderung senden" };
         socket.send(JSON.stringify(dataSend));
     }
+    function handleChallengeOne() {
+        console.log("click");
+        let dataSend = { name: userName, data: "hat dir Folgende Herausforderung gesendet: Drehe dich im Kreis." };
+        socket.send(JSON.stringify(dataSend));
+        highfive.overlayDiv.style.visibility = "hidden";
+    }
+    function handleChallengeTwo() {
+        let dataSend = { name: userName, data: "hat dir Folgende Herausforderung gesendet: Singe ganz laut Alle meine Entchen." };
+        socket.send(JSON.stringify(dataSend));
+        highfive.overlayDiv.style.visibility = "hidden";
+    }
+    function handleChallengeThree() {
+        let dataSend = { name: userName, data: "hat dir Folgende Herausforderung gesendet: Klatsche drei mal laut in die Hände." };
+        socket.send(JSON.stringify(dataSend));
+        highfive.overlayDiv.style.visibility = "hidden";
+    }
     function createInputPW() {
         let sielanfrageButton = document.querySelector("#spielanfrageSenden");
         sielanfrageButton.addEventListener("pointerup", handleClick);
+        highfive.challengeOne.addEventListener("pointerup", handleChallengeOne);
+        highfive.challengeTwo.addEventListener("pointerup", handleChallengeTwo);
+        highfive.challengeThree.addEventListener("pointerup", handleChallengeThree);
         let startBox = document.getElementById("start-screen");
         let Password = document.createElement("input");
         Password.type = "password";
