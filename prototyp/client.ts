@@ -38,6 +38,7 @@ namespace highfive { // name space to isolate identifiers from other examples
   }
 
   function handleClick(): void {
+    console.log("click"); 
     let dataSend: Message = { name: userName, data: "möchte dir eine Herausforderung senden" }
     socket.send(JSON.stringify(dataSend));
 
