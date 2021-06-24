@@ -249,7 +249,7 @@ button#chooseChallenge{
 #overlaySend{
   position: absolute;
   align-content: center;
-  z-index: 1000000;
+  z-index: 100000;
   background:darkslategrey; 
   width: 300px;
   height: 300px;
@@ -307,6 +307,7 @@ button#startChallenge{
   border-style: none;
   background-color:orange;
   color: white; 
+  z-index: 1111000000;
 }
 
 h4{
