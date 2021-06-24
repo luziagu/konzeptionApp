@@ -22,7 +22,7 @@ namespace highfive { // name space to isolate identifiers from other examples
       alert(message.data); 
       let challengeOverlay: HTMLDivElement = <HTMLDivElement>document.getElementById("overlaySend")
       challengeOverlay.style.visibility = "visible"; 
-      challengeOverlay.innerText += selector.toString(); 
+      //challengeOverlay.innerText += selector.toString(); 
       challengeOverlay.innerText += data.toString();
 
 
@@ -53,19 +53,19 @@ namespace highfive { // name space to isolate identifiers from other examples
 
   function handleChallengeOne(): void {
     console.log("click"); 
-    let dataSend: Message = { name: userName, data: " hat dir Folgende Herausforderung gesendet: Drehe dich im Kreis. " }
+    let dataSend: Message = { name: userName, data: " hat dir Folgende Herausforderung gesendet: Drehe dich im Kreis. \n" }
     socket.send(JSON.stringify(dataSend));
     overlayDiv.style.visibility = "hidden"; 
   }
 
   function handleChallengeTwo(): void {
-    let dataSend: Message = { name: userName, data: " hat dir Folgende Herausforderung gesendet: Singe ganz laut Alle meine Entchen. " }
+    let dataSend: Message = { name: userName, data: " hat dir Folgende Herausforderung gesendet: Singe ganz laut Alle meine Entchen. \n" }
     socket.send(JSON.stringify(dataSend));
     overlayDiv.style.visibility = "hidden"; 
   }
 
   function handleChallengeThree(): void {
-    let dataSend: Message = { name: userName, data: " hat dir Folgende Herausforderung gesendet: Klatsche drei mal laut in die Hände. " }
+    let dataSend: Message = { name: userName, data: " hat dir Folgende Herausforderung gesendet: Klatsche drei mal laut in die Hände. \n" }
     socket.send(JSON.stringify(dataSend));
     overlayDiv.style.visibility = "hidden"; 
   }
