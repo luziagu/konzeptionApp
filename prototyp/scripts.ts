@@ -59,14 +59,13 @@ namespace highfive {
 
   function overlay(): void {
 
-    console.log("click");
+    
     overlayDiv.style.visibility = "visible"; 
 
   }
 
   function closeOverlay(): void {
 
-    console.log("click");
     overlayDiv.style.visibility = "hidden"; 
 
   }
