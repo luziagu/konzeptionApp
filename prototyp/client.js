@@ -14,7 +14,7 @@ var highfive;
             alert(message.data);
             let challengeOverlay = document.getElementById("overlaySend");
             challengeOverlay.style.visibility = "visible";
-            challengeOverlay.innerText = carrier + selector;
+            challengeOverlay.innerText = selector + data;
         }
     }
     function createInput() {
