@@ -12,7 +12,7 @@ var highfive;
         if (selector != userName) {
             console.log(message.data);
             alert(message.data);
-            let challengeOverlay = document.getElementById("overlaySend");
+            let challengeOverlay = document.getElementById("outputResponse");
             challengeOverlay.style.visibility = "visible";
             challengeOverlay.innerText += selector.toString();
             challengeOverlay.innerText += data.toString();
