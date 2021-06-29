@@ -300,11 +300,10 @@ button#challengeThree {
 
 }
 button#startChallenge{
-  left: 40px; 
-  right: 40px; 
-  top: 60px; 
+  top: 35%; 
+  left: 18%; 
   padding: 15px; 
-  Position: absolute;  
+  Position: relative;  
   border-radius: 5px;
   border-style: none;
   background-color:orange;
