@@ -11,7 +11,7 @@ var highfive;
         let data = carrier.data;
         if (selector != userName) {
             console.log(message.data);
-            alert(message.data);
+            //alert(message.data); 
             let challengeOverlay = document.getElementById("outputResponse");
             challengeOverlay.style.visibility = "visible";
             highfive.startChallenge.style.visibility = "visible";
