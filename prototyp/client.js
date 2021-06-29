@@ -14,8 +14,9 @@ var highfive;
             alert(message.data);
             let challengeOverlay = document.getElementById("outputResponse");
             challengeOverlay.style.visibility = "visible";
-            challengeOverlay.innerText = selector.toString();
-            challengeOverlay.innerText = data.toString();
+            highfive.startChallenge.style.visibility = "visible";
+            challengeOverlay.innerText += selector.toString();
+            challengeOverlay.innerText += data.toString();
         }
     }
     function createInput() {

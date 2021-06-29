@@ -23,6 +23,7 @@ namespace highfive {
   const userTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.user");
   const paulTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.paul");
   const luisaTextDiv: HTMLDivElement = <HTMLDivElement>document.querySelector(".text-field.luisa");
+  let challengeOverlay: HTMLDivElement = <HTMLDivElement>document.getElementById("outputResponse")
 
   const points: Point[] = [
     { label: "Kevin", element: userPointDiv, text: userTextDiv, latitude: 0, longitude: 0 },
@@ -65,7 +66,7 @@ namespace highfive {
 
   function closeOverlay(): void {
 
-    startChallenge.style.visibility = "hidden"; 
+   challengeOverlay.style.visibility = "hidden"; 
 
   }
 

@@ -16,6 +16,7 @@ var highfive;
     const userTextDiv = document.querySelector(".text-field.user");
     const paulTextDiv = document.querySelector(".text-field.paul");
     const luisaTextDiv = document.querySelector(".text-field.luisa");
+    let challengeOverlay = document.getElementById("outputResponse");
     const points = [
         { label: "Kevin", element: userPointDiv, text: userTextDiv, latitude: 0, longitude: 0 },
         { label: "Paul", element: paulPointDiv, text: paulTextDiv, latitude: 48.049993, longitude: 8.210727 },
@@ -43,7 +44,7 @@ var highfive;
         highfive.overlayDiv.style.visibility = "visible";
     }
     function closeOverlay() {
-        highfive.startChallenge.style.visibility = "hidden";
+        challengeOverlay.style.visibility = "hidden";
     }
     // async function Answer(_event) {
     //   let dataServer = JSON.stringify("Luzia hat eine Spielanfrage gesendet. Möchtest du sie annehmen?"); //wandelt Array in einen JSON string um, damit der Server es lesen kann 

@@ -310,6 +310,7 @@ button#startChallenge{
   background-color:orange;
   color: white; 
   z-index: 1000000;
+  visibility: hidden;
 }
 
 h4{
