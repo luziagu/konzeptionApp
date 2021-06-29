@@ -246,7 +246,7 @@ button#chooseChallenge{
 
 }
 
-#overlaySend{
+#outputResponse{
   position: absolute;
   align-content: center;
   z-index: 100000;
