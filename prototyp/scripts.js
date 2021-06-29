@@ -45,6 +45,7 @@ var highfive;
     }
     function closeOverlay() {
         challengeOverlay.style.visibility = "hidden";
+        highfive.startChallenge.style.visibility = "hidden";
     }
     // async function Answer(_event) {
     //   let dataServer = JSON.stringify("Luzia hat eine Spielanfrage gesendet. Möchtest du sie annehmen?"); //wandelt Array in einen JSON string um, damit der Server es lesen kann 

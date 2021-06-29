@@ -67,6 +67,7 @@ namespace highfive {
   function closeOverlay(): void {
 
    challengeOverlay.style.visibility = "hidden"; 
+   startChallenge.style.visibility = "hidden"; 
 
   }
 
