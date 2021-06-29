@@ -11,7 +11,6 @@ var highfive;
         let data = carrier.data;
         if (selector != userName) {
             console.log(message.data);
-            //alert(message.data); 
             let challengeOverlay = document.getElementById("outputResponse");
             challengeOverlay.style.visibility = "visible";
             highfive.startChallenge.style.visibility = "visible";
@@ -64,7 +63,7 @@ var highfive;
     let Button = document.querySelector(".savename");
     Button.addEventListener("click", showname);
     let userName;
-    function showname(evt) {
+    function showname() {
         let NameInput = document.querySelector(".inputname");
         let Div = document.getElementById("text-fields");
         let name = document.createElement("div");

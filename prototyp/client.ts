@@ -19,7 +19,6 @@ namespace highfive { // name space to isolate identifiers from other examples
     let data: string = carrier.data;
     if (selector != userName){
       console.log(message.data);
-      //alert(message.data); 
       let challengeOverlay: HTMLDivElement = <HTMLDivElement>document.getElementById("outputResponse")
       challengeOverlay.style.visibility = "visible"; 
       startChallenge.style.visibility = "visible"; 
@@ -94,7 +93,7 @@ namespace highfive { // name space to isolate identifiers from other examples
   Button.addEventListener("click", showname);
 
   let userName: string;
-  function showname(evt: Event): void {
+  function showname(): void {
 
     let NameInput: HTMLInputElement = <HTMLInputElement>document.querySelector(".inputname");
     let Div: HTMLDivElement = <HTMLDivElement>document.getElementById("text-fields");
