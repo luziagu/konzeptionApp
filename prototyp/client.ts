@@ -24,7 +24,9 @@ namespace highfive { // name space to isolate identifiers from other examples
       startChallenge.style.visibility = "visible"; 
       challengeOverlay.innerText += selector.toString(); 
       challengeOverlay.innerText += data.toString();
-
+    
+    } else {
+      alert("Deine Herausforderung wurde gesendet.")
     }
 
   }

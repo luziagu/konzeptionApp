@@ -17,6 +17,9 @@ var highfive;
             challengeOverlay.innerText += selector.toString();
             challengeOverlay.innerText += data.toString();
         }
+        else {
+            alert("Deine Herausforderung wurde gesendet.");
+        }
     }
     function createInput() {
         let startBox = document.getElementById("start-screen");
